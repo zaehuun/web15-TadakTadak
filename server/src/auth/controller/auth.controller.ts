@@ -16,7 +16,7 @@ export class AuthController {
   async login(@Body() loginRequestDto: LoginRequestDto, @Res({ passthrough: true }) res: Response) {
     const tk = await this.authService.login(loginRequestDto);
     res.cookie('access-token', tk);
-    return { msg: '통과 됐다..' };
+    return { result: true };
   }
 
   @Post('/join')
