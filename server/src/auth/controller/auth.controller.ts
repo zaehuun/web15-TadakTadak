@@ -21,7 +21,7 @@ export class AuthController {
 
   @Post('/join')
   join(@Body() joinRequestDto: JoinRequestDto) {
-    return this.authService.join(joinRequestDto);
+    return { result: this.authService.join(joinRequestDto) };
   }
 
   @Get('/test')
