@@ -5,7 +5,6 @@ import { map } from 'rxjs/operators';
 export interface Response<T> {
   statusCode: number;
   data: T;
-  message: string;
 }
 
 @Injectable()
@@ -15,7 +14,6 @@ export class TransformInterceptor<T> implements NestInterceptor<T, Response<T>> 
       map((data) => ({
         statusCode: context.switchToHttp().getResponse().statusCode,
         data: data.result,
-        message: 'helllo',
       })),
     );
   }
